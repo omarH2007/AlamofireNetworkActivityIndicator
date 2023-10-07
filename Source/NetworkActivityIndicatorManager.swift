@@ -67,7 +67,9 @@ public class NetworkActivityIndicatorManager {
             guard isNetworkActivityIndicatorVisible != oldValue else { return }
 
             DispatchQueue.main.async {
+#if MAINAPP
                 UIApplication.shared.isNetworkActivityIndicatorVisible = self.isNetworkActivityIndicatorVisible
+#endif
                 self.networkActivityIndicatorVisibilityChanged?(self.isNetworkActivityIndicatorVisible)
             }
         }
